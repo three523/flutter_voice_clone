@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 // import 'package:http/http.dart' as http;
 // import 'package:http/http.dart';
 
-void main() {
+void main() async {
+  await dotenv.load(fileName: '.env');
   runApp(const MyApp());
+
+  print(dotenv.env['KEY']);
 }
 
 class MyApp extends StatelessWidget {
@@ -73,8 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
   //       'accept': 'application/json',
   //       'content-type':
   //           'multipart/form-data; boundary=---011000010111000001101001',
-  //       'AUTHORIZATION': '0a5dd327fb5d42e68c88c2fbed669c5e',
-  //       'X-USER-ID': 'Jxq6mh3jI5QhZLr8KUGIslFRfFi2'
+  //       'AUTHORIZATION': '',
+  //       'X-USER-ID': ''
   //     },
   //     body: body,
   //   );
